@@ -14,10 +14,17 @@ function onEdit(e) {
       return 0;
     }
     
-    if(col === ORIGINAL_COL && SH.getRange(row, TRANSLATED_COL).getValue() === ""){
+    if(col === ORIGINAL_COL){
+    
+      if(SH.getRange(row, TRANSLATED_COL).getValue() !== ""){
+        const translates = Browser.msgBox("翻訳し直しますか", Browser.Buttons.OK_CANCEL);
+        if(translates === "cancel") return 0;
+      }
       const translatedText = LanguageApp.translate(SH.getRange(row, ORIGINAL_COL).getValue(),"en","ja");
       SH.getRange(row, TRANSLATED_COL).setValue(translatedText)
+      
     }
+    
   }catch(e){
     Browser.msgBox(e.stack);
   }
