@@ -13,6 +13,9 @@ function onEdit(e) {
     if(EXCEPT_SHTS.indexOf(shtName) >= 0) {
       return 0;
     }
+    if(SH.getRange(row, ORIGINAL_COL).getValue() === ""){
+      return 0;
+    }
     
     if(col === ORIGINAL_COL){
     
