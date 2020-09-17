@@ -1,3 +1,7 @@
+/* ----------
+　英語を指定列のセルに張り付けると，別指定列に日本語訳を表示するスクリプト
+---------- */
+
 const SH = SpreadsheetApp.getActiveSheet();
 const ORIGINAL_COL = 4; // col of original
 const TRANSLATED_COL = 5; // col of translated
